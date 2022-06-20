@@ -1,5 +1,4 @@
 from django.test import TestCase
-
 from recipes.models import Category, Recipe, User
 
 
@@ -11,12 +10,13 @@ class RecipeTestBase(TestCase):
         return Category.objects.create(name=name)
 
     def make_author(
-            self,
-            first_name='user',
-            last_name='name',
-            username='username',
-            password='123456',
-            email='user@gmail.com', ):
+        self,
+        first_name='user',
+        last_name='name',
+        username='username',
+        password='123456',
+        email='username@email.com',
+    ):
         return User.objects.create_user(
             first_name=first_name,
             last_name=last_name,
@@ -26,20 +26,20 @@ class RecipeTestBase(TestCase):
         )
 
     def make_recipe(
-            self,
-            category_data=None,
-            author_data=None,
-            title='Recipe Title',
-            description='Recipe Description',
-            slug='recipe-slug',
-            preparation_time=10,
-            preparation_time_unit='Minutes',
-            servings=5,
-            servings_unit='People',
-            preparation_steps='Recipe Steps',
-            preparation_steps_is_html=False,
-            is_published=True, ):
-
+        self,
+        category_data=None,
+        author_data=None,
+        title='Recipe Title',
+        description='Recipe Description',
+        slug='recipe-slug',
+        preparation_time=10,
+        preparation_time_unit='Minutos',
+        servings=5,
+        servings_unit='Porções',
+        preparation_steps='Recipe Preparation Steps',
+        preparation_steps_is_html=False,
+        is_published=True,
+    ):
         if category_data is None:
             category_data = {}
 
